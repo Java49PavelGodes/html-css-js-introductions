@@ -48,20 +48,28 @@ padding-left: 0;
     margin-top: 2vh;
     background-color: rgb(165, 190, 175);
     border: solid 1px;
-border-color: rgb(52, 59, 56);
+    border-color: rgb(52, 59, 56);
+    border-radius: 25%;
+    display: flex;
+   
     
 
 }
 .thumbnails-image {
 width: 20vw;
 height: 15vw;
+border-radius: 25%;
 }
 .thumbnails-title {
     display: block; 
     text-align: center;
-    height: 5vw;
+    height: 4vw;
     background-color: rgb(165, 190, 175);
+    border-radius: 99.99999999999999999999999999999999999999%;
+    
 }
 .thumbnails-anchor {
    text-decoration: none;
+   border-radius: 25%;
+    
 }
