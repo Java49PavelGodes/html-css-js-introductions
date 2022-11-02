@@ -31,8 +31,8 @@ do {
     return sum;
 }
 
-console.log('sum1=',sumDigits(123));
-console.log('sum2=',sumDigits(-623));
+// console.log('sum1=',sumDigits(123));
+// console.log('sum2=',sumDigits(-623));
 
 
 
@@ -41,22 +41,22 @@ console.log('sum2=',sumDigits(-623));
 
 let strNum1 = "123";
 let strNum2 = "9";
-console.log(strNum1 + strNum2); //=> 1239
-console.log(strNum1 - strNum2); //=> 114
-console.log(strNum1 > strNum2); //=> false
+// console.log(strNum1 + strNum2); //=> 1239
+// console.log(strNum1 - strNum2); //=> 114
+// console.log(strNum1 > strNum2); //=> false
 
 /////conversions from string  to number
 
 let num1 = + strNum1;//unarniy "+" - preobrazovanie stroki v chislo
 
 let num2 = + strNum2;
-console.log(num1 + num2); //=> 132
-console.log(num1 - num2); //=> 114
-console.log(num1 > num2); //=> true
+//console.log(num1 + num2); //=> 132
+//console.log(num1 - num2); //=> 114
+//console.log(num1 > num2); //=> true
 
 let strNumStr = '123ab';
 let numStr = +strNumStr;
-console.log(numStr);
+//console.log(numStr);
 
 let num = parseInt(strNumStr);//=>123
 
@@ -101,14 +101,19 @@ function fromMorseToNumber(morseCode){
     }
     return result;
 }
-console.log (fromMorseToNumber('-.-'));
+//console.log (fromMorseToNumber('-.-'));
 
-function fromNumberToMorse (number){
+function getSymbol(digit) {
+    let codeA = 'a'.charCodeAt();
+    return digit < 10? digit: String.fromCharCode(codeA + digit-10);
+}
+
+function fromNumberToString /*Morse*/ (number){
     number = Math.abs(number);
     let res = "";
     do {
-        let digit = number % 2; //or 8 - 10 - 36
-        let sym = digit == 0 ? '.' : '-';
+        let digit = number % 2; //or 8 - 10 - 36 -  for function fromNumber2String
+        /*let sym = digit == 0 ? '.' : '-'; */ let sym = getSymbol(digit); // for function fromNumber2String;
         res = sym + res;
 
         number = Math.trunc(number / 2); //or 8-10-36
@@ -119,7 +124,8 @@ function fromNumberToMorse (number){
 
 }
 
-console.log (fromNumberToMorse(5));
+//console.log (fromNumberToMorse(5));
+console.log(fromNumberToString(15,16));
 
 ///HW
 //                           chislo, syst ischisl
