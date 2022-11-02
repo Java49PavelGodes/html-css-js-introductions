@@ -1,3 +1,4 @@
+//--------------fromNumberToString--------------------------
 function fromNumberToString(number, base) {
     console.log('number=', number, 'base=', base);
     if(!isBaseValid(base)) {
@@ -20,7 +21,15 @@ function fromNumberToString(number, base) {
     }
     return number<0 ? ('-' + result) : result;
 }
-
+console.log(fromNumberToString(900550, 37)); // => base???
+console.log(fromNumberToString(900550, 36)); // => 'java'
+console.log(fromNumberToString(46016237, 36)); // => 'react'
+console.log(fromNumberToString(-46016237, 36)); // => '-react'
+console.log(fromNumberToString(11483, 2)); // => '10110011011011'
+console.log(fromNumberToString('1an483', 2)); // => isNaN
+console.log(fromNumberToString(11483, '2a')); // => '10110011011011'
+console.log('=============================================');
+//--------------fromStringToNumber--------------------------
 function fromStringToNumber(inputStr, base) {
     console.log('inputStr=', inputStr, ' base=', base);
     if(!isBaseValid(base)) {
@@ -30,7 +39,6 @@ function fromStringToNumber(inputStr, base) {
         return 'inputStr='+inputStr+' is not string';
     }
     let result = 0;
-    inputStr.toLowerCase();
     for(let i=0; i<inputStr.length; i++) {
         /* V.R.
         The charCodeAt() method returns an integer between 0 and 65535
@@ -48,40 +56,24 @@ function fromStringToNumber(inputStr, base) {
         }
         let x = inputStr.length - 1 - i;
         result = result + code*(base**x);
-    //    result = result*base + code;
+//        result = result*base + code;
     }
     return result;
 }
 
-
+console.log(fromStringToNumber('java', 36));  // => 900550
+console.log(fromStringToNumber('java', 1));  // => 900550
+console.log(fromStringToNumber('react', 36));  // => 46016237
+console.log(fromStringToNumber('10110011011011', 2));  // => 11483
+console.log(fromStringToNumber(123, 35));
+console.log(fromStringToNumber('java', '12as'));
+//---------------isBaseValid------------------------------
 function isBaseValid(base) {
     if(isNaN(base)) {
         return false;
     }
-    if(typeof base == 'number' && Number.isInteger('base') && base>=2 && base<=36) {
+    if(typeof base == 'number' && base>=2 && base<=36) {
         return true;
     }
     return false;
 }
-console.log(fromNumberToString(900550, 36)); 
-console.log(fromNumberToString(46016237, 36));
-console.log(fromStringToNumber('10110011011011', 2)); 
-console.log(fromStringToNumber('react', 36));
-console.log(fromNumberToString(-46016237, 36));
-console.log(fromNumberToString(900550, 36.2))
-
-
-
-
-///HW
-//                           chislo, syst ischisl
-//function fromNumberToString(number, base)   like to Morse
-
-
-// function fromStringToNumber(string, base)
-
-
-// TODO   getting code from symbol:  console.log('0' .charCodeAt(0)) ->
-// console.log('abc' .charCodeAt(2)) -> ??
-//// console.log('a' .charCodeAt(0)) -> 97 from aski to digit
-// console.log(String.fromCharCode(99)) from symbol to ASKI
