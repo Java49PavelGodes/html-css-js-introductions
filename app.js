@@ -91,6 +91,13 @@ function fromMorseToNumber(morseCode){
      {
         let code = morseCode[i] == '.' ? 0 : 1; // if '. then 0, else 1
         result = result * 2 + code ;//or 10-16-32 e t c
+        // result = 10(all in binary)
+        // result*2=>100 
+        //code = 1
+        // res +code = 101 
+     
+
+
     }
     return result;
 }
