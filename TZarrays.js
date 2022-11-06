@@ -44,6 +44,7 @@ function integerArray2String(array) {
         return str + String.fromCharCode(cur+char0);
     }, "");
 }
+
 function updateCtrlDigit(array) {
     let sum = getControlSum(integerArray2String(array));
     let roundedSum = Math.floor(sum/10)*10;
@@ -52,6 +53,7 @@ function updateCtrlDigit(array) {
     } 
     return roundedSum+10-sum;
 }
+
 function getRandomIntegerValue(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
