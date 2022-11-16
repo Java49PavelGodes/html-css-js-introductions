@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../webcademy-js-6-hours-course"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "webcademy-js-6-hours-course"
+	}
+}
