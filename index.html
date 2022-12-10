@@ -1,12 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Form</title>
+    <link rel="stylesheet" href="styles/form.css">
 </head>
+
 <body>
-    <label style="font-size: 40px; text-align: center; display: block;">My name is Pavel</label>
+    <div class="buttons-menu">
+        <button onclick="showSection(0)" class="btn-menu">Add Book</button>
+        <button onclick="showSection(1)" class="btn-menu">Show All Books</button>
+        <button onclick="showSection(2)" class="btn-menu">Show Books by pages</button>
+        <button onclick="showSection(3)" class="btn-menu">Show Books by author</button>
+    </div>
+    <section id="add-book" hidden>
+        <header class="book-title">
+            Book Form
+        </header>
+        <form id="book_form" onsubmit="onSubmit(event)" class="form-class">
+            <div class="two-inputs">
+                <input type="text" name="book_name" required placeholder="Enter book name">
+                <input type="text" name="author" placeholder="Enter Author name" required>
+            </div>
+            <div class="date-label">
+                <label>Enter Publish date</label>
+                <input type="date" name="publishDate" required onchange="onChange(event)">
+
+            </div>
+            <p id="date_error" class="error"></p>
+            <div class="two-inputs">
+                <select name="genre" required>
+                    <option value hidden selected disabled>
+                        --Select Genre--
+                    </option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Sci-fi">Sci-fi</option>
+                    <option value="Roman">Roman</option>
+                    <option value="Detective">Detective</option>
+                </select>
+                <input type="number" name="pages" placeholder="Enter number of pages" onchange="onChange(event)" required>
+
+            </div>
+            <p id="pages_error" class="error"></p>
+            <div class="buttons">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+
+
+
+        </form>
+    </section>
+    <section id="show-all-books" hidden>
+        <ul class="books-list" id="books-all">
+
+        </ul>
+    </section>
+    <section id="show-books-pages" hidden>
+        <form id="pages-form" class="form-class" onsubmit="onSubmitPages(event)">
+            <div class="two-inputs">
+                <input type="number" name="pagesFrom" placeholder="Enter pages 'From'" onchange="onChangePagesFrom(event)" required>
+                <input type="number" name="pagesTo" placeholder="Enter pages 'To'" onchange="onChangePagesTo(event)" required>
+            </div>
+            <div class="buttons">
+                <button type="submit">Search</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+        <p id="pages_form_error" class="error center"></p>
+        <ul class="books-list" id="books-pages">
+
+        </ul>
+    </section>
+    
+    <script src="src/main.js" type="module"></script>
 </body>
+
 </html>
