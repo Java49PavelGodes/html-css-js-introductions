@@ -20,6 +20,7 @@ const booksListElement = document.getElementById("books-all");
 const booksPagesListElement = document.getElementById("books-pages");
 const sectionsElement = document.querySelectorAll("section");
 const buttonsMenuElement = document.querySelectorAll(".buttons-menu *");
+const booksAuthorElement = document.getElementById("books-author");
 /************************************************************************** */
 //functions of Company
 
@@ -146,13 +147,17 @@ function getBookItems(books) {
 function onSubmitAuthor(event) {
     event.preventDefault();
     const author = Array.from(authorFormInputElements)[0].value;
+    console.log('len=', Array.from(authorFormInputElements).length);
+    console.log('Author=', author);
     const books = library.getBooksbyAuthor(author);
-    booksListElement.innerHTML = getBookItems(books);
+    console.log(books);
+    booksAuthorElement.innerHTML = getBookItems(books);
 }
 
 window.onSubmit = onSubmit;
 window.onChange = onChange;
-window.validateDate = validateDate;
+
+//window.validateDate = validateDate;
 window.onSubmitAuthor = onSubmitAuthor;
 window.showSection = showSection;
 window.onChangePagesTo = onChangePagesTo;
