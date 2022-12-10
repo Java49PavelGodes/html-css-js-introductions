@@ -37,8 +37,8 @@
                         --Select Genre--
                     </option>
                     <option value="Fantasy">Fantasy</option>
-                    <option value="Sci-fi">Sci-fi</option>
-                    <option value="Roman">Roman</option>
+                    <option value="Busines">Busines</option>
+                    <option value="Fairy Tales">Fairy Tales</option>
                     <option value="Detective">Detective</option>
                 </select>
                 <input type="number" name="pages" placeholder="Enter number of pages" onchange="onChange(event)" required>
@@ -72,6 +72,24 @@
         </form>
         <p id="pages_form_error" class="error center"></p>
         <ul class="books-list" id="books-pages">
+
+        </ul>
+    </section>
+    <section id="show-books-author" hidden>
+        <header class="form-title">
+            Author Form
+        </header>
+        <form id="author-form" class="author-form-class" onsubmit="onSubmitAuthor(event)">
+            <div class="one-input">
+                <label>Author</label>
+                <input type="text" name="author-name" placeholder="Enter author name" required>
+            </div>
+            <div class="buttons">
+                <button type="submit">Search</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+        <ul class="books-list" id="books-author">
 
         </ul>
     </section>

@@ -1,9 +1,12 @@
 import { Library } from "./data/company.js";
+
+const authorFormInputElements = document.querySelectorAll(".author-form-class [name]");
 const inputElements = document.querySelectorAll(".form-class [name]");
 const MIN_PAGES = 50;
 const MAX_PAGES = 2000;
 const MIN_YEAR = 1980;
 const maxYear = getMaxYear();
+const minDate = new Date('1980-01-01');
 const TIME_OUT_ERROR_MESSAGE = 5000;
 const ERROR_CLASS = "error";
 const ACTIVE = "active"
@@ -76,6 +79,14 @@ function showErrorMessage(element, message, errorElement) {
 function getMaxYear() {
     return new Date().getFullYear();
 }
+function validateDate(element) {
+    const selectedDate = new Date(element.value);
+    if(selectedDate < minDate || selectedDate > maxDate) {
+        const message = selectedDate<minDate ? `date must be ${minDate} or greater`:
+           `date must be ${maxDate} or less`;
+        showErrorMessage(element, message, dateErrorElement) ;    
+    }
+}
 /************************************************************* */
 
 /********************************************************************************** */
@@ -131,9 +142,18 @@ function getBookItems(books) {
               </div>
           </li>`).join('');
 }
+// Functions of the Author form 
+function onSubmitAuthor(event) {
+    event.preventDefault();
+    const author = Array.from(authorFormInputElements)[0].value;
+    const books = library.getBooksbyAuthor(author);
+    booksListElement.innerHTML = getBookItems(books);
+}
 
 window.onSubmit = onSubmit;
 window.onChange = onChange;
+window.validateDate = validateDate;
+window.onSubmitAuthor = onSubmitAuthor;
 window.showSection = showSection;
 window.onChangePagesTo = onChangePagesTo;
 window.onChangePagesFrom = onChangePagesFrom;
