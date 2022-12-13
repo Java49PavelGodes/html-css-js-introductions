@@ -1,4 +1,4 @@
-import { Library } from "./data/company.js";
+import { Library } from "./data/library.js";
 
 const authorFormInputElements = document.querySelectorAll(".author-form-class [name]");
 const inputElements = document.querySelectorAll(".form-class [name]");
