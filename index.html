@@ -5,29 +5,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form</title>
-    <link rel="stylesheet" href="styles/form.css">
+    <title>Library</title>
+    <link rel="stylesheet" href="styles/library.css">
 </head>
 
 <body>
     <div class="buttons-menu">
-        <button onclick="showSection(0)" class="btn-menu">Add Book</button>
-        <button onclick="showSection(1)" class="btn-menu">Show All Books</button>
-        <button onclick="showSection(2)" class="btn-menu">Show Books by pages</button>
-        <button onclick="showSection(3)" class="btn-menu">Show Books by author</button>
+        <button class="btn-menu">Add Book</button>
+        <button class="btn-menu">Show All Books</button>
+        <button class="btn-menu">Show Books by Number of Pages</button>
+        <button class="btn-menu">Show Books by Author</button>
     </div>
     <section id="add-book" hidden>
-        <header class="book-title">
+        <header class="form-title">
             Book Form
         </header>
-        <form id="book_form" onsubmit="onSubmit(event)" class="form-class">
+        <form id="book_form" class="book-form-class">
             <div class="two-inputs">
-                <input type="text" name="book_name" required placeholder="Enter book name">
-                <input type="text" name="author" placeholder="Enter Author name" required>
+                <input type="text" name="book_title" required placeholder="Enter book title">
+                <input type="text" name="author" placeholder="Enter author name" required>
             </div>
             <div class="date-label">
-                <label>Enter Publish date</label>
-                <input type="date" name="publishDate" required onchange="onChange(event)">
+                <label>Enter publishing date</label>
+                <input type="date" name="publishingDate" required id="date_input">
 
             </div>
             <p id="date_error" class="error"></p>
@@ -36,12 +36,13 @@
                     <option value hidden selected disabled>
                         --Select Genre--
                     </option>
-                    <option value="Fantasy">Fantasy</option>
-                    <option value="Busines">Busines</option>
-                    <option value="Fairy Tales">Fairy Tales</option>
-                    <option value="Detective">Detective</option>
+                    <option value="Epic">Epic</option>
+                    <option value="Essay">Essay</option>
+                    <option value="Story">Story</option>
+                    <option value="Play">Play</option>
                 </select>
-                <input type="number" name="pages" placeholder="Enter number of pages" onchange="onChange(event)" required>
+                <input type="number" name="pages" placeholder="Enter number of pages"
+                                    id="pages_input" required>
 
             </div>
             <p id="pages_error" class="error"></p>
@@ -49,23 +50,27 @@
                 <button type="submit">Submit</button>
                 <button type="reset">Reset</button>
             </div>
-
-
-
         </form>
     </section>
+
     <section id="show-all-books" hidden>
+        <header class="form-title">
+            The Full List of Books
+        </header>
         <ul class="books-list" id="books-all">
 
         </ul>
     </section>
     <section id="show-books-pages" hidden>
-        <form id="pages-form" class="form-class" onsubmit="onSubmitPages(event)">
+        <header class="form-title">
+            Pages Form
+        </header>
+        <form id="pages-form" class="form-class" >
             <div class="two-inputs">
-                <input type="number" name="pagesFrom" placeholder="Enter pages 'From'" onchange="onChangePagesFrom(event)" required>
-                <input type="number" name="pagesTo" placeholder="Enter pages 'To'" onchange="onChangePagesTo(event)" required>
+                <input type="number" id="pageFrom" name="pagesFrom" placeholder="Enter pages 'From'"  required>
+                <input type="number" id="pageTo" name="pagesTo" placeholder="Enter pages 'To'"  required>
             </div>
-            <div class="buttons">onSubmitAuthor
+            <div class="buttons">
                 <button type="submit">Search</button>
                 <button type="reset">Reset</button>
             </div>
@@ -79,10 +84,10 @@
         <header class="form-title">
             Author Form
         </header>
-        <form id="author-form" class="author-form-class" onsubmit="onSubmitAuthor(event)">
+        <form id="author-form" class="author-form-class">
             <div class="one-input">
                 <label>Author</label>
-                <input type="text" name="author-name" placeholder="Enter author name" required>
+                <input type="text" name="author-name" id="author" placeholder="Enter author name" required>
             </div>
             <div class="buttons">
                 <button type="submit">Search</button>
@@ -93,7 +98,6 @@
 
         </ul>
     </section>
-    
     <script src="src/main.js" type="module"></script>
 </body>
 

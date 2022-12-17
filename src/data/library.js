@@ -9,9 +9,12 @@ export class Library {
     getAllBooks() {
         return this.books;
     }
-    getBooksByPages(pagesFrom, pagesTo) {
-        return this.books.filter(e => e.pages >= pagesFrom && e.pages < pagesTo);
+    getBooksbyPagesRange(pageFrom, pageTo) {
+        return this.books.filter(b => b.pages >= pageFrom && b.pages < pageTo);
     }
+    // getBooksByPages(pagesFrom, pagesTo) {
+    //     return this.books.filter(e => e.pages >= pagesFrom && e.pages < pagesTo);
+    // }
     getBooksbyAuthor(author) {
         return this.books.filter(b => b.author==author);
     }
